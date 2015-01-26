@@ -2,8 +2,8 @@
 
 var el;
 
-if(!!global.document){
-  el = global.document.createElement('div');
+if(!!document){
+  el = document.createElement('div');
 }
 
 var prefixes = ["ms", "Moz", "Webkit", "O"];
@@ -37,7 +37,7 @@ var properties = [
 ];
 
 function GetVendorPrefix(property) {
-  if(properties.indexOf(property) == -1 || !global.document || typeof el.style[property] !== 'undefined'){
+  if(properties.indexOf(property) == -1 || !document || typeof el.style[property] !== 'undefined'){
     return property;
   }
 
@@ -58,7 +58,7 @@ function GetVendorPrefix(property) {
 module.exports = (function(){
   var cache = {};
   return function(obj){
-    if(!global.document){
+    if(!document){
       return obj;
     }
 
